@@ -15,13 +15,13 @@ Add to numbers:
 ```
 #str#"Type two numbers: "
 #f32.read #f32.read
-#f32.add $f32.write #ch#'\n' #ch.print
+#f32.add #f32.write #ch#'\n' #ch.print
 ```
 
 ## Expressions
 
 Spaces/horizontal tabulators between expressions are NOT included.
-Line-feed, vertical tabular and varriage-return characters are ignored.
+Line-feed, vertical tabular and carriage-return characters are ignored.
 
 ```
 program ::=
@@ -76,9 +76,9 @@ string ::=
 
 buildin ::=
   "#(u|i)(8|16|32|64)\.(add|sub|mul|div|rsh|lsh|inv|eq|write|read)"
-| "#ch.(write|read)"
-| "#str.(cc|eq|write|read)"
-| ".(eat)"
+| "#ch\.(write|read)"
+| "#str\.(cc|eq|write|read)"
+| "\.(eat)"
 ```
 
 ## Semantics
