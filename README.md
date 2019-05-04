@@ -103,6 +103,18 @@ Stack *newStack(void) {
   return result;
 }
 
+void freeStack(Stack *stack) {
+  free(stack->data);
+  free(stack);
+}
+
+void reserveStackData(Stack *stack, size_t size) {
+  if (stack->size + size > stack->allocSize) {
+    stack->allocSize = stack->size + size + 1024; // 1024 is additional
+    stack->data = (uint8_t*) realloc(stack->data, stack->allocSize);
+  }
+}
+
 Stack *parent = NULL;
 Stack *current = newStack();
 ```
