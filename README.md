@@ -140,6 +140,23 @@ Transformations:
   reserveStackData(parent, 1);
   parent->data[parent->size++] = current->data[--current->size];
 
+"#i8#(0|[1-9][0-9]*|0x[0-9A-F)*)" ->
+  reserveStackData(current, 1);
+  current->data[current->size++] = /* integer */
+
+"#u8#(0|[1-9][0-9]*|0x[0-9A-F)*)" ->
+  reserveStackData(current, 1);
+  current->data[current->size++] = /* integer */
+
+"#i16#(0|[1-9][0-9]*|0x[0-9A-F)*)" ->
+  reserveStackData(current, sizeof(int16_t));
+  // push integer bytes in reverse
+  // (so that top of stack will be the first integer of the number)
+  current->data[current->size++] = /* integer[1] */
+  current->data[current->size++] = /* integer[0] */
+
+and so on ...
+
 #i8.add ->
   current->data[current->size - 2] = current->data[current->size - 1] + current->data[current->size - 2];
   current->size -= 1;
@@ -147,13 +164,13 @@ Transformations:
 #i16.add ->
   int16_t result;
   int16_t x = 0, y = 0;
-  ((uint8_t*) &x)[0] = current->data[current->size - 2]
-  ((uint8_t*) &x)[1] = current->data[current->size - 1]
-  ((uint8_t*) &y)[0] = current->data[current->size - 4]
-  ((uint8_t*) &y)[1] = current->data[current->size - 3]
+  ((uint8_t*) &x)[1] = current->data[current->size - 2]
+  ((uint8_t*) &x)[0] = current->data[current->size - 1]
+  ((uint8_t*) &y)[1] = current->data[current->size - 4]
+  ((uint8_t*) &y)[0] = current->data[current->size - 3]
   result = x + y
-  current->data[current->size - 4] = ((uint8_t*) &result)[0];
-  current->data[current->size - 3] = ((uint8_t*) &result)[2];
+  current->data[current->size - 4] = ((uint8_t*) &result)[1];
+  current->data[current->size - 3] = ((uint8_t*) &result)[0];
   current->size -= 2;
 
 and so on ...
