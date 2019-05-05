@@ -7,3 +7,5 @@ add_executable(stacklang
   "${stacklang_SOURCE_DIR}/src/main.c"
   "${stacklang_SOURCE_DIR}/src/lexer.c"
   "${stacklang_SOURCE_DIR}/src/syntax.c")
+
+add_subdirectory("${stacklang_SOURCE_DIR}/src/test")
