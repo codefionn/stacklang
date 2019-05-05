@@ -46,37 +46,37 @@ uint8_t  *u8_Stack(Stack *stack, size_t offset);
  *    stack->size - sizeof(int16_t) - offset.
  * \param offset offset (from end to start) in bytes
  */
-int16_t  *i16_Stack(Stack *stac, size_t offset);
+int16_t  *i16_Stack(Stack *stack, size_t offset);
 
 /*!\return Returns uint16_t at position 
  *    stack->size - sizeof(uint16_t) - offset.
  * \param offset offset (from end to start) in bytes
  */
-uint16_t *u16_Stack(Stack *stac, size_t offset);
+uint16_t *u16_Stack(Stack *stack, size_t offset);
 
 /*!\return Returns int32_t at position 
  *    stack->size - sizeof(int32_t) - offset.
  * \param offset offset (from end to start) in bytes
  */
-int32_t  *i32_Stack(Stack *stac, size_t offset);
+int32_t  *i32_Stack(Stack *stack, size_t offset);
 
 /*!\return Returns uint32_t at position 
  *
  *    stack->size - sizeof(uint32_t) - offset.
  * \param offset offset (from end to start) in bytes
  */
-uint32_t *u32_Stack(Stack *stac, size_t offset);
+uint32_t *u32_Stack(Stack *stack, size_t offset);
 
 /*!\return Returns int64_t at position
  *     stack->size - sizeof(int64_t) - offset.
  * \param offset offset (from end to start) in bytes
  */
-int64_t  *i64_Stack(Stack *stac, size_t offset);
+int64_t  *i64_Stack(Stack *stack, size_t offset);
 
 /*!\return Returns uint64_t at position
  *     stack->size - sizeof(uint64_t) - offset.
  * \param offset offset (from end to start) in bytes
  */
-uint64_t *u64_Stack(Stack *stac, size_t offset);
+uint64_t *u64_Stack(Stack *stack, size_t offset);
 
 #endif /* STACKLANG_STACK_H */
