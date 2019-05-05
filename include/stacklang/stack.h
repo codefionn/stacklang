@@ -79,4 +79,36 @@ int64_t  *i64_Stack(Stack *stack, size_t offset);
  */
 uint64_t *u64_Stack(Stack *stack, size_t offset);
 
+/*!\return returns x in reversed byte order.
+ */
+int8_t reverse_i8(int8_t x);
+
+/*!\return returns x in reversed byte order.
+ */
+uint8_t reverse_u8(uint8_t x);
+
+/*!\return returns x in reversed byte order.
+ */
+int16_t reverse_i16(int16_t x);
+
+/*!\return returns x in reversed byte order.
+ */
+uint16_t reverse_u16(uint16_t x);
+
+/*!\return returns x in reversed byte order.
+ */
+int32_t reverse_i32(int32_t x);
+
+/*!\return returns x in reversed byte order.
+ */
+uint32_t reverse_u32(uint32_t x);
+
+/*!\return returns x in reversed byte order.
+ */
+int64_t reverse_i64(int64_t x);
+
+/*!\return returns x in reversed byte order.
+ */
+uint64_t reverse_u64(uint64_t x);
+
 #endif /* STACKLANG_STACK_H */

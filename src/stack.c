@@ -74,3 +74,39 @@ uint64_t *u64_Stack(Stack *stack, size_t offset) {
 }
 
 #undef  type_Stack
+
+#define reverse_type(type, x) \
+  type result = 0;\
+  for (size_t i = 0; i < sizeof(type); ++i) {\
+    ((uint8_t*) &result)[i] = ((uint8_t*) &x)[sizeof(type) - 1 - i]; \
+  }\
+  return result
+
+int8_t reverse_i8(int8_t x) { return x; }
+uint8_t reverse_u8(uint8_t x) { return x; }
+
+int16_t reverse_i16(int16_t x) {
+  reverse_type(int16_t, x);
+}
+
+uint16_t reverse_u16(uint16_t x) {
+  reverse_type(uint16_t, x);
+}
+
+int32_t reverse_i32(int32_t x) {
+  reverse_type(int32_t, x);
+}
+
+uint32_t reverse_u32(uint32_t x) {
+  reverse_type(uint32_t, x);
+}
+
+int64_t reverse_i64(int64_t x) {
+  reverse_type(int64_t, x);
+}
+
+uint64_t reverse_u64(uint64_t x) {
+  reverse_type(uint64_t, x);
+}
+
+#undef reverse_type
