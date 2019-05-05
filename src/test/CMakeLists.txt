@@ -6,5 +6,9 @@ enable_testing()
 add_executable(stacktest
   "${stacklang_SOURCE_DIR}/src/test/stack.c"
   "${stacklang_SOURCE_DIR}/src/stack.c")
+add_executable(reversetest
+  "${stacklang_SOURCE_DIR}/src/test/reverse.c"
+  "${stacklang_SOURCE_DIR}/src/stack.c")
 
 add_test(test0 stacktest "100" "64532" "1000000" "42" "1235642312")
+add_test(test1 reversetest)
