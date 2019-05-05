@@ -39,7 +39,7 @@ bool reserveStackData(Stack *stack, size_t size) {
 }
 
 #define type_Stack(type, stack, offset) \
-  return (type*) stack->data[stack->size - sizeof(type) - offset]
+  return (type*) (stack->data + (stack->size - sizeof(type) - offset))
 
 int8_t *i8_Stack(Stack *stack, size_t offset) {
   type_Stack(int8_t, stack, offset);
