@@ -60,7 +60,7 @@ literal ::=
 
 bool ::=
   '#b#true'
-| '$false'
+| '#b#false'
 
 integer ::=
   "#(u|i)(8|16|32|64)#(0|[1-9][0-9]*|0x[0-9A-F)*)"
