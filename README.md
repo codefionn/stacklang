@@ -78,7 +78,7 @@ buildin ::=
   "#(u|i)(8|16|32|64)\.(add|sub|mul|div|rsh|lsh|inv|eq|write|read)"
 | "#ch\.(write|read)"
 | "#str\.(cc|eq|write|read)"
-| "\.(eat)"
+| "\.(eat|swap)"
 ```
 
 ## Semantics
@@ -191,4 +191,9 @@ and so on ...
 
 .eat ->
   current->size -= 1;
+
+.swap ->
+  uint8_t tmp = current->data[current->size - 1];
+  current->data[current->size - 1] = current->data[current->size - 2];
+  current->data[current->size - 2] = tmp;
 ```
