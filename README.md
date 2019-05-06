@@ -179,6 +179,16 @@ and so on ...
   current->data[current->size - 2] = current->data[current->size - 1] + current->data[current->size - 2];
   current->size -= 1;
 
+#str#"str" ->
+  // Puts str in reverse on stack (0st element in str will be on top of stack)
+  // str is the string in the expression (null terminated)
+  size_t len = strlen(str);
+  reserveStackData(stack, len + 1);
+  stack->data[stack->size++] = '\0';
+  for (size_t i = len; i > 0; ++i) {
+	  stack->data[stack->size++] = str[i - 1];
+  }
+
 .eat ->
   current->size -= 1;
 ```
